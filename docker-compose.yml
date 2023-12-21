@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  mongodb_netlink:
+    image: mongo
+    restart: always
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: adminOMG123S
+      MONGO_INITDB_ROOT_PASSWORD: rootRoot1234
+    container_name: netlink_db
