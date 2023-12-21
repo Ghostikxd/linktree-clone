@@ -1,7 +1,4 @@
-import Button from '@/components/Button'
-import { faGoogle } from '@fortawesome/free-brands-svg-icons'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import LoginWithGoogle from '@/components/buttons/LoginWithGoogle'
 
 const LoginPage = () => {
 	return (
@@ -11,10 +8,7 @@ const LoginPage = () => {
 				<p className='mr-auto text-gray-600 mb-4'>
 					Sign in to your account using one of the methods below:
 				</p>
-				<Button className='flex gap-2 justify-center items-center shadow-lg'>
-					<FontAwesomeIcon icon={faGoogle} className='w-5 h-5' />
-					<span>Sign In with Google</span>
-				</Button>
+				<LoginWithGoogle />
 			</div>
 		</div>
 	)

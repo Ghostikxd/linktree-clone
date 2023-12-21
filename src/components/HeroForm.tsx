@@ -12,7 +12,9 @@ const HeroForm = () => {
 				/>
 			</div>
 
-			<Button className='ml-2'>Join for free</Button>
+			<Button className='ml-2 hover:scale-105 duration-500'>
+				Join for free
+			</Button>
 		</form>
 	)
 }
