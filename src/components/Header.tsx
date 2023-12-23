@@ -45,10 +45,16 @@ const Header = async () => {
 					)}
 					{!session && (
 						<>
-							<Link href={'/login'} className='hover:scale-105 duration-500'>
+							<Link
+								href={'/login'}
+								className='hover:underline hover:scale-105 duration-500'
+							>
 								Sign In
 							</Link>
-							<Link href={'/sing-up'} className='hover:scale-105 duration-500'>
+							<Link
+								href={'/sing-up'}
+								className=' hover:underline hover:scale-105 duration-500'
+							>
 								Sing Up
 							</Link>
 						</>

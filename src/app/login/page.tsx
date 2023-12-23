@@ -1,3 +1,4 @@
+import LoginWithGitHub from '@/components/buttons/LoginWithGitHub'
 import LoginWithGoogle from '@/components/buttons/LoginWithGoogle'
 
 const LoginPage = () => {
@@ -8,7 +9,9 @@ const LoginPage = () => {
 				<p className='mr-auto text-gray-600 mb-4'>
 					Sign in to your account using one of the methods below:
 				</p>
-				<LoginWithGoogle />
+
+				<LoginWithGoogle className='mb-3 mt-2' />
+				<LoginWithGitHub />
 			</div>
 		</div>
 	)
