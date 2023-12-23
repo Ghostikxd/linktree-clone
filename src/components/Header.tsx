@@ -1,4 +1,6 @@
 import { authOptions } from '@/app/utils/authOptions'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { LinkIcon } from 'lucide-react'
 import { getServerSession } from 'next-auth'
 import Link from 'next/link'
@@ -31,14 +33,15 @@ const Header = async () => {
 					</nav>
 				</div>
 
-				<nav className='flex items-center gap-4 	'>
+				<nav className='flex items-center gap-4'>
 					{!!session && (
 						<>
 							<Link
 								href={'/profile'}
-								className='hover:underline hover:scale-105 duration-500'
+								className='hover:underline hover:scale-105 duration-500 flex justify-center items-baseline gap-1'
 							>
-								Profile
+								<span>Profile</span>
+								<FontAwesomeIcon icon={faUser} className='h-4 w-4' />
 							</Link>
 							<LogoutButton></LogoutButton>
 						</>

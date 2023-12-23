@@ -5,19 +5,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
 import { signIn } from 'next-auth/react'
 import { HTMLAttributes } from 'react'
-import Button from '../Button'
+import Button from './Button'
 
 interface LoginWithGitHubProps extends HTMLAttributes<HTMLButtonElement> {
 	className?: string
+	onClose?: () => void
 }
 
-const LoginWithGitHub = ({ className }: LoginWithGitHubProps) => {
+const LoginWithGitHub = ({ className, onClose }: LoginWithGitHubProps) => {
 	const handleSignIn = () => {
 		signIn('github')
+		if (onClose) {
+			onClose()
+		}
 	}
 
 	const buttonClasses = clsx(
-		'flex gap-2 justify-center items-center shadow-lg hover:scale-105 duration-700 bg-gray-950 hover:bg-gray-800',
+		'flex gap-2 justify-center items-center shadow-lg hover:scale-105 duration-700 bg-black hover:bg-black/80',
 		className
 	)
 

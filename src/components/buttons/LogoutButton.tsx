@@ -9,7 +9,7 @@ const LogoutButton = () => {
 			onClick={() => signOut()}
 		>
 			<span>Logout</span>
-			<LogOutIcon />
+			<LogOutIcon className='h-4 w-4' />
 		</button>
 	)
 }

@@ -5,15 +5,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
 import { signIn } from 'next-auth/react'
 import { HTMLAttributes } from 'react'
-import Button from '../Button'
+import Button from './Button'
 
 interface LoginWithGoogleProps extends HTMLAttributes<HTMLButtonElement> {
 	className?: string
+	onClose?: () => void
 }
 
-const LoginWithGoogle = ({ className }: LoginWithGoogleProps) => {
+const LoginWithGoogle = ({ className, onClose }: LoginWithGoogleProps) => {
 	const handleSignIn = () => {
 		signIn('google')
+		if (onClose) {
+			onClose()
+		}
 	}
 
 	const buttonClasses = clsx(
