@@ -11,7 +11,7 @@ const Button = ({ children, className, ...rest }: ButtonProps) => {
 			type='button'
 			role='button'
 			className={clsx([
-				'shadow-xl px-4 py-2 rounded-full text-white bg-indigo-600 duration-150 hover:bg-indigo-500 active:bg-indigo-700',
+				'shadow-xl px-4 py-2 rounded-full text-white bg-indigo-600 duration-700 hover:bg-indigo-500 hover:scale-105  active:bg-indigo-700',
 				className,
 			])}
 			{...rest}

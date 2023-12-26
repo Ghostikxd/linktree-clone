@@ -21,7 +21,7 @@ const LoginWithGitHub = ({ className, onClose }: LoginWithGitHubProps) => {
 	}
 
 	const buttonClasses = clsx(
-		'flex gap-2 justify-center items-center shadow-lg hover:scale-105 duration-700 bg-black hover:bg-black/80',
+		'flex gap-2 justify-center items-center shadow-lg hover:scale-105 duration-700 bg-gray-950 hover:bg-gray-800 ',
 		className
 	)
 

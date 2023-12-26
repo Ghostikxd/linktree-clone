@@ -14,11 +14,11 @@ const HeroForm = () => {
 	useEffect(() => {
 		if (
 			'localStorage' in window &&
-			window.localStorage.getItem('desired_username')
+			window.localStorage.getItem('desiredUsername')
 		) {
-			const username = window.localStorage.getItem('desired_username')
-			window.localStorage.removeItem('desired_username')
-			redirect('/profile?username=' + username)
+			const username = window.localStorage.getItem('desiredUsername')
+			window.localStorage.removeItem('desiredUsername')
+			redirect('/account?desiredUsername=' + username)
 		}
 	}, [])
 
@@ -34,7 +34,7 @@ const HeroForm = () => {
 		}
 
 		if (username.length > 0) {
-			window.localStorage.setItem('desired_username', username)
+			window.localStorage.setItem('desiredUsername', username)
 			setIsModalOpen(true)
 		} else {
 			setFormSubmitted(true)
@@ -45,8 +45,11 @@ const HeroForm = () => {
 	}
 
 	return (
-		<div>
-			<form onSubmit={handleSubmit} className='flex mt-4 items-center  '>
+		<div className='max-w-md'>
+			<form
+				onSubmit={handleSubmit}
+				className='flex mt-4 items-center justify-center'
+			>
 				<div
 					className={` rounded overflow-hidden flex items-center shadow-xl focus-within:outline-4 focus-within:ring-2 focus-within:ring-indigo-500 ${
 						!username.trim() && formSubmitted ? 'ring-2 ring-red-500' : ''
@@ -59,11 +62,13 @@ const HeroForm = () => {
 						type='text'
 						placeholder='yourname'
 						maxLength={20}
-						className='py-2  text-gray-500 outline-none w-[200px]'
+						className='py-2  text-gray-500 outline-none '
 					/>
 				</div>
-
-				<Button type='submit' className='ml-2 hover:scale-105 duration-500'>
+				<Button
+					type='submit'
+					className='ml-2 hover:scale-105 duration-500 whitespace-nowrap'
+				>
 					Join for free
 				</Button>
 			</form>

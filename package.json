@@ -22,7 +22,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-modal": "^3.16.1",
-    "tailwindcss-important": "^1.0.0"
+    "tailwindcss-important": "^1.0.0",
+    "url": "^0.11.3"
   },
   "devDependencies": {
     "@types/node": "^20",

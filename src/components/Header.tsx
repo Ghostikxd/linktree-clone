@@ -18,7 +18,7 @@ const Header = async () => {
 						className='text-lg hover:scale-105 duration-500 flex justify-center items-baseline gap-1'
 					>
 						<LinkIcon className='h-4 w-4 text-indigo-600' />
-						<span className='font-semibold'>NetLink</span>
+						<span className='font-semibold text-black'>NetLink</span>
 					</Link>
 					<nav className='flex  gap-4 text-gray-700 '>
 						<Link href={'/about'} className='hover:scale-105 duration-500'>
@@ -37,10 +37,10 @@ const Header = async () => {
 					{!!session && (
 						<>
 							<Link
-								href={'/profile'}
+								href={`/account`}
 								className='hover:underline hover:scale-105 duration-500 flex justify-center items-baseline gap-1'
 							>
-								<span>Profile</span>
+								<span>Profile: {session.user?.name}</span>
 								<FontAwesomeIcon icon={faUser} className='h-4 w-4' />
 							</Link>
 							<LogoutButton></LogoutButton>
