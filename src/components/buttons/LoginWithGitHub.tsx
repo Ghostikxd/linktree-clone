@@ -21,13 +21,13 @@ const LoginWithGitHub = ({ className, onClose }: LoginWithGitHubProps) => {
 	}
 
 	const buttonClasses = clsx(
-		'flex gap-2 justify-center items-center shadow-lg hover:scale-105 duration-700 bg-gray-950 hover:bg-gray-800 ',
+		'flex gap-2 justify-center items-center shadow-lg hover:scale-105 duration-700  !bg-black hover:!bg-black/80',
 		className
 	)
 
 	return (
 		<Button type='submit' onClick={handleSignIn} className={buttonClasses}>
-			<FontAwesomeIcon icon={faGithub} className='w-6 h-6' />
+			<FontAwesomeIcon icon={faGithub} className='w-6 h-6 ' />
 			<span>Sign In with GitHub</span>
 		</Button>
 	)
