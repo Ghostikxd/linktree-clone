@@ -1,13 +1,18 @@
 'use client'
 
-import { redirect } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import ModalSignIn from './ModalSignIn'
-import Button from './buttons/Button'
-import LoginWithGitHub from './buttons/LoginWithGitHub'
-import LoginWithGoogle from './buttons/LoginWithGoogle'
+import Button from '../buttons/Button'
+import LoginWithGitHub from '../buttons/LoginWithGitHub'
+import LoginWithGoogle from '../buttons/LoginWithGoogle'
+import ModalSignIn from '../modals/ModalSignIn'
 
-const HeroForm = () => {
+interface HeroFormProps {
+	user?: boolean
+}
+
+const HeroForm = ({ user }: HeroFormProps) => {
+	const router = useRouter()
 	const [username, setUsername] = useState('')
 	const [isModalOpen, setIsModalOpen] = useState(false)
 	const [formSubmitted, setFormSubmitted] = useState(false)
@@ -34,8 +39,12 @@ const HeroForm = () => {
 		}
 
 		if (username.length > 0) {
-			window.localStorage.setItem('desiredUsername', username)
-			setIsModalOpen(true)
+			if (user) {
+				router.push('/account?desiredUsername=' + username)
+			} else {
+				window.localStorage.setItem('desiredUsername', username)
+				setIsModalOpen(true)
+			}
 		} else {
 			setFormSubmitted(true)
 			setTimeout(() => {

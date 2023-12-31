@@ -1,6 +1,9 @@
-import HeroForm from './HeroForm'
+import { authOptions } from '@/app/utils/authOptions'
+import { getServerSession } from 'next-auth'
+import HeroForm from './forms/HeroForm'
 
-const Hero = () => {
+const Hero = async () => {
+	const session = await getServerSession(authOptions)
 	return (
 		<section className='pt-32'>
 			<div className='max-w-md'>
@@ -12,7 +15,7 @@ const Hero = () => {
 					Share your links, social profiles, contact info and more on one page
 				</h2>
 			</div>
-			<HeroForm />
+			<HeroForm user={!!session?.user} />
 		</section>
 	)
 }
