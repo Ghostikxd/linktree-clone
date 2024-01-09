@@ -4,7 +4,7 @@ import { grabUsername } from '@/actions/grabUsername'
 import { ArrowRightCircleIcon } from 'lucide-react'
 import { redirect } from 'next/navigation'
 import { useState } from 'react'
-import Button from '../buttons/Button'
+import { SubmitButton } from '../buttons/SubmitButton'
 
 interface UsernameFormProps {
 	desiredUsername: string
@@ -15,9 +15,10 @@ const UsernameForm = ({ desiredUsername }: UsernameFormProps) => {
 
 	async function handleSubmit(formData: FormData) {
 		const result = await grabUsername(formData)
+
 		setTaken(result === false)
 		if (result) {
-			redirect('/account/' + formData.get('username'))
+			redirect('/account?created=' + formData.get('username'))
 		}
 	}
 
@@ -35,7 +36,7 @@ const UsernameForm = ({ desiredUsername }: UsernameFormProps) => {
 					type='text'
 					placeholder='username'
 					defaultValue={desiredUsername}
-					className='text-center p-2 w-full font-medium outline-indigo-500 rounded-md border mx-auto mb-2'
+					className='text-center p-2 w-full font-medium outline-indigo-500 rounded-md border mx-auto '
 					autoComplete='off'
 				/>
 				{taken && (
@@ -43,14 +44,10 @@ const UsernameForm = ({ desiredUsername }: UsernameFormProps) => {
 						This username is taken
 					</div>
 				)}
-
-				<Button
-					type='submit'
-					className='mx-auto  mt-3 w-full flex items-center justify-center gap-2'
-				>
+				<SubmitButton>
 					<span>Claim your username</span>
 					<ArrowRightCircleIcon />
-				</Button>
+				</SubmitButton>
 			</div>
 		</form>
 	)

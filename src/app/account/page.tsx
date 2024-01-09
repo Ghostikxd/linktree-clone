@@ -1,4 +1,5 @@
 import UsernameForm from '@/components/forms/UsernameForm'
+import { Page } from '@/models/Page'
 import { NextApiRequest } from 'next'
 import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
@@ -13,9 +14,14 @@ interface CustomRequest extends NextApiRequest {
 const AccountPage = async (req: CustomRequest) => {
 	const session = await getServerSession(authOptions)
 	const desiredUsername = req.searchParams.desiredUsername
-
 	if (!session) {
 		redirect('/')
+	}
+
+	const page = await Page.findOne({ owner: session?.user?.email })
+
+	if (page) {
+		return <div>your page is:/{page.uri}</div>
 	}
 
 	return (
