@@ -3,7 +3,7 @@ import { Page } from '@/models/Page'
 import { NextApiRequest } from 'next'
 import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
-import { authOptions } from '../utils/authOptions'
+import { authOptions } from '../../utils/authOptions'
 
 interface CustomRequest extends NextApiRequest {
 	searchParams: {
@@ -14,8 +14,9 @@ interface CustomRequest extends NextApiRequest {
 const AccountPage = async (req: CustomRequest) => {
 	const session = await getServerSession(authOptions)
 	const desiredUsername = req.searchParams.desiredUsername
+
 	if (!session) {
-		redirect('/')
+		return redirect('/')
 	}
 
 	const page = await Page.findOne({ owner: session?.user?.email })

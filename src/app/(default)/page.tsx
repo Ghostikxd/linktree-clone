@@ -1,9 +1,11 @@
 import Hero from '@/components/Hero'
 
-export default function Home() {
+const Home = async () => {
 	return (
 		<main>
 			<Hero />
 		</main>
 	)
 }
+
+export default Home
