@@ -2,14 +2,16 @@
 import { LogOutIcon } from 'lucide-react'
 import { signOut } from 'next-auth/react'
 
-const LogoutButton = () => {
+const LogoutButton = ({
+	className = 'flex items-center justify-center gap-1 hover:underline hover:scale-105 duration-500',
+	iconLeft = false,
+	iconClasses = 'h-4 w-4',
+}) => {
 	return (
-		<button
-			className='flex items-center justify-center gap-1 hover:underline hover:scale-105 duration-500 '
-			onClick={() => signOut()}
-		>
+		<button className={className} onClick={() => signOut()}>
+			{iconLeft && <LogOutIcon className={iconClasses} />}
 			<span>Logout</span>
-			<LogOutIcon className='h-4 w-4' />
+			{!iconLeft && <LogOutIcon className={iconClasses} />}
 		</button>
 	)
 }
