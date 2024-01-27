@@ -3,5 +3,25 @@
 @tailwind utilities;
 
 body {
+	@apply bg-gray-200;
+}
+
+.main-page {
 	@apply bg-gray-400;
+}
+
+.radio-togglers {
+	@apply bg-gray-300 inline-flex  p-1 rounded;
+}
+
+.radio-togglers div {
+	@apply p-2 px-4 block text-gray-700 flex gap-2 items-center;
+}
+
+.radio-togglers input[type='radio'] {
+	@apply hidden;
+}
+
+.radio-togglers input[type='radio']:checked + div {
+	@apply bg-indigo-500 text-gray-200;
 }

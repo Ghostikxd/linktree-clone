@@ -1,3 +1,4 @@
+import PageSettingsForm from '@/components/forms/PageSettingsForm'
 import UsernameForm from '@/components/forms/UsernameForm'
 import { Page } from '@/models/Page'
 import mongoose from 'mongoose'
@@ -22,9 +23,10 @@ const AccountPage = async (req: CustomRequest) => {
 
 	mongoose.connect(process.env.MONGODB_URI as string)
 	const page = await Page.findOne({ owner: session?.user?.email })
+	console.log(page)
 
 	if (page) {
-		return <div>your page is:/{page.uri}</div>
+		return <PageSettingsForm page={page} />
 	}
 
 	return (

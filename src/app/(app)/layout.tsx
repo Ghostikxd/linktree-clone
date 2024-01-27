@@ -44,7 +44,9 @@ export default async function AppLayout({
 						</div>
 					</aside>
 					<div className='grow'>
-						<div className='bg-gray-300 m-8 p-4 shadow '>{children}</div>
+						<div className='bg-gray-300 m-8 p-4 shadow rounded-md '>
+							{children}
+						</div>
 					</div>
 				</main>
 			</body>
