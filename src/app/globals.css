@@ -15,7 +15,7 @@ body {
 }
 
 .radio-togglers div {
-	@apply p-2 px-4 block text-gray-700 flex gap-2 items-center;
+	@apply p-2 px-4  text-gray-700 flex gap-2 items-center;
 }
 
 .radio-togglers input[type='radio'] {
@@ -23,5 +23,5 @@ body {
 }
 
 .radio-togglers input[type='radio']:checked + div {
-	@apply bg-indigo-500 text-gray-200;
+	@apply bg-indigo-500 text-gray-200 rounded;
 }
