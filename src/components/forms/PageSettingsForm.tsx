@@ -4,6 +4,7 @@ import { faImage, faPalette } from '@fortawesome/free-solid-svg-icons'
 import { faSave } from '@fortawesome/free-solid-svg-icons/faSave'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
+import toast from 'react-hot-toast'
 import { SubmitButton } from '../buttons/SubmitButton'
 import RadioTogglers from '../formItems/RadioTogglers'
 
@@ -11,6 +12,8 @@ interface PageModelProps {
 	displayName: string
 	location: string
 	bio: string
+	bgType: string
+	bgColor: string
 	_id: string
 	uri: string
 	owner: string
@@ -33,18 +36,41 @@ interface PageSettingsFormProps {
 const PageSettingsForm = ({ page, user }: PageSettingsFormProps) => {
 	async function saveBaseSettings(formData: FormData) {
 		const result = await savePageSettings(formData)
-		console.log(result)
+		if (result) {
+			toast.success('Saved!')
+		} else {
+			toast.error('Failed to save.')
+		}
 	}
 	return (
 		<div className='-m-4'>
 			<form action={saveBaseSettings}>
-				<div className='bg-gray-400 py-16 flex justify-center items-center rounded-t-md'>
-					<RadioTogglers
-						options={[
-							{ value: 'color', icon: faPalette, label: 'Color' },
-							{ value: 'image', icon: faImage, label: 'Image' },
-						]}
-					/>
+				<div
+					className=' py-16 flex justify-center items-center rounded-t-md'
+					style={{ backgroundColor: page.bgColor }}
+				>
+					<div>
+						<RadioTogglers
+							defaultValue={page.bgType}
+							options={[
+								{ value: 'color', icon: faPalette, label: 'Color' },
+								{ value: 'image', icon: faImage, label: 'Image' },
+							]}
+						/>
+						<div className='bg-gray-300 rounded shadow text-gray-700 mt-2	'>
+							{page.bgType === 'color' && (
+								<div className='mt-2 flex justify-center items-center gap-2'>
+									<span>Background Color:</span>
+									<input
+										type='color'
+										className='bg-gray-300'
+										name='bgColor'
+										defaultValue={page.bgColor}
+									/>
+								</div>
+							)}
+						</div>
+					</div>
 				</div>
 				<div className='flex justify-center -mb-12'>
 					<Image
@@ -66,6 +92,7 @@ const PageSettingsForm = ({ page, user }: PageSettingsFormProps) => {
 						defaultValue={page.displayName}
 						placeholder='Your name'
 						autoComplete='off'
+						className='settings-page'
 					/>
 					<label className='input-label' htmlFor='locationIn'>
 						Location
@@ -77,6 +104,7 @@ const PageSettingsForm = ({ page, user }: PageSettingsFormProps) => {
 						defaultValue={page.location}
 						placeholder='Somewhere in the world...'
 						autoComplete='off'
+						className='settings-page'
 					/>
 					<label className='input-label' htmlFor='bioIn'>
 						Bio

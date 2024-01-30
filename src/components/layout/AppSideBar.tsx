@@ -12,7 +12,7 @@ const AppSideBar = () => {
 			<Link
 				className={
 					'hover:underline hover:scale-105 duration-500 flex gap-2 ' +
-					(path === '/account' ? 'text-indigo-600 font-semibold' : '')
+					(path === '/account' ? 'text-indigo-600 ' : '')
 				}
 				href={'/account'}
 			>
@@ -22,7 +22,7 @@ const AppSideBar = () => {
 			<Link
 				className={
 					'hover:underline hover:scale-105 duration-500 flex gap-2  ' +
-					(path === '/analytics' ? 'text-indigo-600 font-semibold' : '')
+					(path === '/analytics' ? 'text-indigo-600 ' : '')
 				}
 				href={'/analytics'}
 			>

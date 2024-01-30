@@ -4,6 +4,7 @@ import { getServerSession } from 'next-auth'
 import { Inter } from 'next/font/google'
 import Image from 'next/image'
 import { redirect } from 'next/navigation'
+import { Toaster } from 'react-hot-toast'
 import '../globals.css'
 import { authOptions } from '../utils/authOptions'
 
@@ -28,6 +29,7 @@ export default async function AppLayout({
 	return (
 		<html lang='en'>
 			<body className={inter.className}>
+				<Toaster />
 				<main className='flex min-h-screen'>
 					<aside className='bg-gray-300 w-48 p-4 shadow'>
 						<div className='rounded-full overflow-hidden w-24 mx-auto'>

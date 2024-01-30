@@ -71,7 +71,7 @@ const HeroForm = ({ user }: HeroFormProps) => {
 						type='text'
 						placeholder='yourname'
 						maxLength={20}
-						className='py-2  text-gray-500 outline-none '
+						className='heroIn py-2  text-gray-500 outline-none '
 					/>
 				</div>
 				<Button

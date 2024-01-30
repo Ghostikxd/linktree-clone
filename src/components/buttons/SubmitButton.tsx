@@ -19,7 +19,7 @@ export const SubmitButton = ({
 				className
 			}
 		>
-			{pending ? 'Pending...' : children}
+			{pending ? 'Saving...' : children}
 		</Button>
 	)
 }
