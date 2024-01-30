@@ -23,10 +23,9 @@ const AccountPage = async (req: CustomRequest) => {
 
 	mongoose.connect(process.env.MONGODB_URI as string)
 	const page = await Page.findOne({ owner: session?.user?.email })
-	console.log(page)
 
 	if (page) {
-		return <PageSettingsForm page={page} />
+		return <PageSettingsForm page={page} user={session.user} />
 	}
 
 	return (

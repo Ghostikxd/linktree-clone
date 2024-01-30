@@ -13,7 +13,7 @@ const RadioTogglers = ({ options }: RadioTogglersProps) => {
 	return (
 		<div className='radio-togglers shadow'>
 			{options.map(option => (
-				<label>
+				<label key={option.value}>
 					<input type='radio' name='bgType' value={option.value} />
 					<div>
 						<FontAwesomeIcon icon={option.icon} className='h-5 w-5' />
