@@ -8,9 +8,14 @@ interface RadioTogglersProps {
 		label: string
 	}[]
 	defaultValue: string
+	onChange: (value: string) => void
 }
 
-const RadioTogglers = ({ options, defaultValue }: RadioTogglersProps) => {
+const RadioTogglers = ({
+	options,
+	defaultValue,
+	onChange,
+}: RadioTogglersProps) => {
 	return (
 		<div className='radio-togglers shadow'>
 			{options.map(option => (
@@ -20,6 +25,7 @@ const RadioTogglers = ({ options, defaultValue }: RadioTogglersProps) => {
 						name='bgType'
 						value={option.value}
 						defaultChecked={defaultValue === option.value}
+						onClick={ev => onChange((ev.target as HTMLInputElement).value)}
 					/>
 					<div>
 						<FontAwesomeIcon icon={option.icon} className='h-5 w-5' />
